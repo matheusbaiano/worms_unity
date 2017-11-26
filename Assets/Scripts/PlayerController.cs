@@ -44,18 +44,18 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         if (isActive)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
+            if (Input.GetKeyDown(KeyCode.W))
             { // The weapon becomes visible
                 targeting = true;
                 knifing = false;
                 gunTransform.gameObject.SetActive(true);
                 knifeTransform.gameObject.SetActive(false);
             }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
+            if (Input.GetKeyDown(KeyCode.S))
             { // The knife becomes visible
-                knifing = true;
+				knifing = false;
                 targeting = false;
-                knifeTransform.gameObject.SetActive(true);
+				knifeTransform.gameObject.SetActive(false);
                 gunTransform.gameObject.SetActive(false);
             }
             if (targeting)
