@@ -52,4 +52,40 @@ public class VarPlayer : MonoBehaviour{
         player2Var = 3;
         contP2++;
     }
+
+    public void OnLuanP1()
+    {
+        player1Var = 4;
+        contP1++;
+    }
+
+    public void OnLuanP2()
+    {
+        player2Var = 4;
+        contP2++;
+    }
+
+    public void OnChinaP1()
+    {
+        player1Var = 5;
+        contP1++;
+    }
+
+    public void OnChinaP2()
+    {
+        player2Var = 5;
+        contP2++;
+    }
+
+    public void OnJorgeP1()
+    {
+        player1Var = 6;
+        contP1++;
+    }
+
+    public void OnJorgeP2()
+    {
+        player2Var = 6;
+        contP2++;
+    }
 }
