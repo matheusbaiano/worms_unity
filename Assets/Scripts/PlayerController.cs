@@ -8,20 +8,19 @@ public class PlayerController : MonoBehaviour {
     public float maxTimeShooting; // maximum time shooting
     public BoxCollider2D groundBC;// ref to the BoxCollider2D of the floor
     public GameObject bulletPrefab; // ref for the GameObject (Pre-made) of the bullet
-
+    
     private BoxCollider2D bc; // ref to the player's BoxCollider2D
     private Rigidbody2D rb; // ref to the player's Rigidbody2D
-    private Animator an; // ref for Animator of GameObject Body
+    public Animator an; // ref for Animator of GameObject Body
     private bool shooting; // the player is shooting?
     private float timeShooting; // time the player is shooting
     private Vector2 shootDirection; // ref for normalized Vector2 that points in the direction of the shot of the player
-
+    
     public GameObject shootingEffect; // ref for the GameObject that contains the particle effect of the Player throwing
     public Transform gunTransform; // ref to the Transform of the GameObject Gun (Gun contains the sprite of the gun and the sight)
     public Transform bodyTransform; // ref for the Transform of the GameObject Body (Body contains the sprite of the body of the worm)
     public Transform bulletInitialTransform; // ref for the Transform that stores the initial position of the bullet
     public Transform knifeTransform; // ref to knife Transform.
-
     private bool targeting; // the player is watching?
     private bool knifing; // player is knifing
     public bool isActive;
@@ -36,9 +35,15 @@ public class PlayerController : MonoBehaviour {
         // Looking for an Animator-type component in the GameObjects children of Player
         // Actually we want the Animator component that is in the GameObject Body
         an = GetComponentInChildren<Animator>();
-
-		//gunTransform.eulerAngles = new Vector3(0f, 0f, -30f);
-	}
+        if (VarPlayer.player1Var != 1){
+            an.SetInteger("persona", VarPlayer.player1Var);
+        }
+        if (VarPlayer.player2Var != 1)
+        {
+            an.SetInteger("personagem", VarPlayer.player2Var);
+        }
+        //gunTransform.eulerAngles = new Vector3(0f, 0f, -30f);
+    }
 	
 	// Update is called once per frame
 	void Update () {

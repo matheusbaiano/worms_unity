@@ -17,6 +17,8 @@ public class MenuController : MonoBehaviour {
     // OnClick () function changes scene
     // Remember that the scenes that the game will contain are in File-> Build Settings
     public void OnClick(){
-		Application.LoadLevel("wormScene");
+        if(VarPlayer.contP1 > 0 && VarPlayer.contP2 > 0){
+            Application.LoadLevel("wormScene");
+        }
 	}
 }
