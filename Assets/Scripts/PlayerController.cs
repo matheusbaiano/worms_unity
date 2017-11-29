@@ -172,34 +172,36 @@ public class PlayerController : MonoBehaviour {
     }
     // Update the speed of our Player based on the keys pressed
     void UpdateMove(){
-		if( (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
-            || (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)))
-        {
-			rb.velocity = new Vector2(velocity,rb.velocity.y);
-			if( bodyTransform.localScale.x > 0f )
-				bodyTransform.localScale = new Vector3( -bodyTransform.localScale.x, bodyTransform.localScale.y, 0f );
+        if (isActive) { 
+		    if( (Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow))
+                || (Input.GetKey(KeyCode.D) && !Input.GetKey(KeyCode.A)))
+            {
+			    rb.velocity = new Vector2(velocity,rb.velocity.y);
+			    if( bodyTransform.localScale.x > 0f )
+				    bodyTransform.localScale = new Vector3( -bodyTransform.localScale.x, bodyTransform.localScale.y, 0f );
 
-			an.SetBool("moving", true);
-		}
-		else if( (!Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow))
-            || (!Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)))
-        {
-            rb.velocity = new Vector2(-velocity, rb.velocity.y);
-            if ( bodyTransform.localScale.x < 0f )
-				bodyTransform.localScale = new Vector3( -bodyTransform.localScale.x, bodyTransform.localScale.y, 0f );
+			    an.SetBool("moving", true);
+		    }
+		    else if( (!Input.GetKey(KeyCode.RightArrow) && Input.GetKey(KeyCode.LeftArrow))
+                || (!Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)))
+            {
+                rb.velocity = new Vector2(-velocity, rb.velocity.y);
+                if ( bodyTransform.localScale.x < 0f )
+				    bodyTransform.localScale = new Vector3( -bodyTransform.localScale.x, bodyTransform.localScale.y, 0f );
 
-			an.SetBool("moving", true);
-		}
-        else if (Input.GetKey(KeyCode.Space))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, 5);
+			    an.SetBool("moving", true);
+		    }
+            else if (Input.GetKey(KeyCode.Space))
+            {
+                rb.velocity = new Vector2(rb.velocity.x, 5);
+            }
+            else
+            {
+			    rb.velocity = new Vector2(0, rb.velocity.y);
+                an.SetBool("moving", false);
+		    }
         }
-        else
-        {
-			rb.velocity = new Vector2(0, rb.velocity.y);
-            an.SetBool("moving", false);
-		}
-	}
+    }
 
     // Function called in every frame in which there is collision between the Collider of Player and another Collider
     void OnCollisionStay2D( Collision2D other ){
