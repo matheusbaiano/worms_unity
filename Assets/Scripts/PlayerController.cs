@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour {
     private bool shooting; // the player is shooting?
     private float timeShooting; // time the player is shooting
     private Vector2 shootDirection; // ref for normalized Vector2 that points in the direction of the shot of the player
+	[SerializeField]
+	private Transform groundPoint; 
     
     public GameObject shootingEffect; // ref for the GameObject that contains the particle effect of the Player throwing
     public Transform gunTransform; // ref to the Transform of the GameObject Gun (Gun contains the sprite of the gun and the sight)
@@ -27,6 +29,8 @@ public class PlayerController : MonoBehaviour {
     public Game parent;
     public bool switchP;
     public float wind;
+
+
 
     // Use this for initialization
     void Start () {

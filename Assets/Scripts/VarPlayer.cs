@@ -8,6 +8,8 @@ public class VarPlayer : MonoBehaviour{
     public static int player2Var =1;
     public static int contP1 = 0;
     public static int contP2 = 0;
+	public static bool[] p1Select = new bool[6];
+	public static bool[] p2Select = new bool[6];
     // Use this for initialization
     void Start () {
 	
@@ -19,12 +21,16 @@ public class VarPlayer : MonoBehaviour{
 	}
 
     public void OnGayvisonP1(){
+		zerarSelect (p1Select);
+		p1Select [2] = true;
         player1Var = 1;
         contP1++;
     }
 
     public void OnGayvisonP2()
     {
+		zerarSelect (p2Select);
+		p2Select [2] = true;
         player2Var = 1;
         contP2++;
     }
@@ -88,4 +94,11 @@ public class VarPlayer : MonoBehaviour{
         player2Var = 6;
         contP2++;
     }
+
+	public void zerarSelect(bool[] pSelect){
+		for(int i = 0; i< pSelect.Length;i++){
+			pSelect [i] = false;
+		}
+	}
+
 }
