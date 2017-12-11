@@ -14,6 +14,8 @@ public class Game : MonoBehaviour {
 	public GameObject win1;
 	public GameObject win2;
 	public GameObject windZ;
+	public int faseLoad = 0;
+
 
 	public Text txtRef;
 	//public Canvas can;
@@ -37,83 +39,65 @@ public class Game : MonoBehaviour {
 		// Retrieve the name of this scene.
 		string sceneName = currentScene.name;
 
+
 		if (sceneName == "fase1") {
 
-			if (player1.switchP) {
-				calcWind ();
-				player1.switchP = false;
-				player2.switchP = false;
-				player1.isActive = false;
-				player2.isActive = true;
-				sphere1.SetActive (false);
-				sphere2.SetActive (true);
-			}
-			if (player2.switchP) {
-				calcWind ();
-				player1.switchP = false;
-				player2.switchP = false;
-				player2.isActive = false;
-				player1.isActive = true;
-				sphere1.SetActive (true);
-				sphere2.SetActive (false);
-			}
-
+			movimentacao ();
 			if (player2.transform.position.y < -100) {
+				player2.isActive = false;
+				player1.isActive = false;
 				win1.SetActive (true);
 				Application.LoadLevel ("fase2");
 			}
 			if (player1.transform.position.y < -100) {
+				player2.isActive = false;
+				player1.isActive = false;
 				win2.SetActive (true);
 				Application.LoadLevel ("fase2");
 			}
+
 		}
 
 		if (sceneName == "fase2") {
-
-			win1.SetActive(false);
-			win2.SetActive(false);
-			calcWind();
-			sphere1.SetActive(true);
-			sphere2.SetActive(false);
-			player1.isActive = true;
-			player2.isActive = false;
-
-
-			if (player1.switchP) {
-				calcWind ();
-				player1.switchP = false;
-				player2.switchP = false;
-				player1.isActive = false;
-				player2.isActive = true;
-				sphere1.SetActive (false);
-				sphere2.SetActive (true);
-			}
-			if (player2.switchP) {
-				calcWind ();
-				player1.switchP = false;
-				player2.switchP = false;
+			if (faseLoad == 0) {
 				player2.isActive = false;
-				player1.isActive = true;
-				sphere1.SetActive (true);
-				sphere2.SetActive (false);
+				player2.isActive = true;
+				faseLoad = 1;
 			}
-
-			if(player1.isActive == false && player2.isActive== false ){
-				setPlayer1();
-			}
+			movimentacao2 ();
 
 			if (player2.transform.position.y < -100) {
-				win1.SetActive (true);
-				player1.isActive = false;
 				player2.isActive = false;
+				player1.isActive = false;
+				win1.SetActive (true);
 				Application.LoadLevel ("fase3");
 			}
 			if (player1.transform.position.y < -100) {
-				win2.SetActive (true);
-				player1.isActive = false;
 				player2.isActive = false;
+				player1.isActive = false;
+				win2.SetActive (true);
 				Application.LoadLevel ("fase3");
 			}
+
+
+
+		}
+		if (sceneName == "fase3") {
+
+			movimentacao2 ();
+			if (player2.transform.position.y < -100) {
+				player2.isActive = false;
+				player1.isActive = false;
+				win1.SetActive (true);
+				Application.LoadLevel ("menuScene");
+			}
+			if (player1.transform.position.y < -100) {
+				player2.isActive = false;
+				player1.isActive = false;
+				win2.SetActive (true);
+				Application.LoadLevel ("menuScene");
+			}
+
 		}
 
 
@@ -133,6 +117,23 @@ public class Game : MonoBehaviour {
 		if (windR < 0) wt.transform.position = new Vector3(4.2f, 0, 0);
 
 	}
+
+	public void calcWind2()
+	{
+		player1.wind = 0;
+		player2.wind = 0;
+		System.Random rnd = new System.Random();
+		int windR = rnd.Next(-100, 100);
+		txtRef.text = windR.ToString();
+		player1.wind = windR/10;
+		player2.wind = windR/10;
+		WindZone wz2 = windZ.GetComponent<WindZone>();
+		wz2.windMain = Mathf.Abs((windR / 10));
+		Transform wt2 = windZ.GetComponent<Transform>();
+		if (windR > 0) wt2.transform.position = new Vector3(-45,0,0);
+		if (windR < 0) wt2.transform.position = new Vector3(4.2f, 0, 0);
+
+	}
 	public void setPlayer1()
 	{
 		player1.isActive = true;
@@ -142,5 +143,50 @@ public class Game : MonoBehaviour {
 	{
 		player2.isActive = true;
 		player1.isActive = false;
+	}
+
+	public void movimentacao(){
+		if (player1.switchP) {
+			calcWind ();
+			player1.switchP = false;
+			player2.switchP = false;
+			player1.isActive = false;
+			player2.isActive = true;
+			sphere1.SetActive (false);
+			sphere2.SetActive (true);
+		}
+		if (player2.switchP) {
+			calcWind ();
+			player1.switchP = false;
+			player2.switchP = false;
+			player2.isActive = false;
+			player1.isActive = true;
+			sphere1.SetActive (true);
+			sphere2.SetActive (false);
+		}
+
+
+	
+	}
+	public void movimentacao2(){
+		if (player1.switchP) {
+			player1.switchP = false;
+			player2.switchP = false;
+			player1.isActive = false;
+			player2.isActive = true;
+			sphere1.SetActive (false);
+			sphere2.SetActive (true);
+		}
+		if (player2.switchP) {
+			player1.switchP = false;
+			player2.switchP = false;
+			player2.isActive = false;
+			player1.isActive = true;
+			sphere1.SetActive (true);
+			sphere2.SetActive (false);
+		}
+
+
+
 	}
 }

@@ -1,6 +1,12 @@
 ﻿<Properties StartupItem="worms_unity.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Game.cs" Line="51" Column="18" />
+      <File FileName="Assets\Scripts\PlayerController2.cs" Line="74" Column="22" />
+      <File FileName="Assets\Scripts\PlayerController.cs" Line="137" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

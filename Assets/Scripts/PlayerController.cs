@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     public Game parent;
     public bool switchP;
     public float wind;
+	public bool isground = false;
 
 
 
@@ -132,7 +133,7 @@ public class PlayerController : MonoBehaviour {
 		playerToMouse.Normalize();
 
 		shootDirection = playerToMouse;
-		Debug.Log("Shoot!");
+
 		GameObject bullet = Instantiate(bulletPrefab);
         ConstantForce2D cf2d = bullet.GetComponent<ConstantForce2D>();
 		bullet.transform.position = bulletInitialTransform.position;
@@ -174,6 +175,26 @@ public class PlayerController : MonoBehaviour {
     {
 
     }
+
+	//check if is onground or not
+	private void OnCollisionEnter2D(Collision2D collider){
+		if (collider.gameObject.tag == "Ground") {
+			
+			print ("enter");
+			isground = true;
+		}
+	}
+
+	private void OnCollisionExit2D(Collision2D collider){
+		if (collider.gameObject.tag == "Ground") {
+
+			print ("enter");
+			isground = false;
+		}
+	}
+
+
+
     // Update the speed of our Player based on the keys pressed
     void UpdateMove(){
         if (isActive) { 
@@ -197,7 +218,11 @@ public class PlayerController : MonoBehaviour {
 		    }
             else if (Input.GetKey(KeyCode.Space))
             {
-                rb.velocity = new Vector2(rb.velocity.x, 5);
+				print ("tenta chamar");
+				if(isground){
+					
+                	rb.velocity = new Vector2(rb.velocity.x, 5);
+				}
             }
             else
             {
