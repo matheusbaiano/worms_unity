@@ -59,11 +59,7 @@ public class Game : MonoBehaviour {
 		}
 
 		if (sceneName == "fase2") {
-			if (faseLoad == 0) {
-				player2.isActive = false;
-				player2.isActive = true;
-				faseLoad = 1;
-			}
+
 			movimentacao2 ();
 
 			if (player2.transform.position.y < -100) {
@@ -84,17 +80,19 @@ public class Game : MonoBehaviour {
 		}
 		if (sceneName == "fase3") {
 
-			movimentacao2 ();
+			movimentacao ();
 			if (player2.transform.position.y < -100) {
 				player2.isActive = false;
 				player1.isActive = false;
 				win1.SetActive (true);
+				VarPlayer.contP1 = VarPlayer.contP2 = 0;
 				Application.LoadLevel ("menuScene");
 			}
 			if (player1.transform.position.y < -100) {
 				player2.isActive = false;
 				player1.isActive = false;
 				win2.SetActive (true);
+				VarPlayer.contP1 = VarPlayer.contP2 = 0;
 				Application.LoadLevel ("menuScene");
 			}
 
@@ -170,6 +168,7 @@ public class Game : MonoBehaviour {
 	}
 	public void movimentacao2(){
 		if (player1.switchP) {
+			calcWind ();
 			player1.switchP = false;
 			player2.switchP = false;
 			player1.isActive = false;
@@ -178,6 +177,7 @@ public class Game : MonoBehaviour {
 			sphere2.SetActive (true);
 		}
 		if (player2.switchP) {
+			calcWind ();
 			player1.switchP = false;
 			player2.switchP = false;
 			player2.isActive = false;
