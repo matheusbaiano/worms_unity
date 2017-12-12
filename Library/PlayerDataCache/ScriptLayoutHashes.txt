@@ -132,6 +132,8 @@ b7536247a550bc1596505b7f345c8adf Assembly-CSharp.dll:.GunAim
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GA_FREE_Demo00
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.VoltarMenu
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.Fireplace
+05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.CallbackExecutor
+05524b8f659e7bfe5756d1335fec24ba UnityEngine.Advertisements.dll:UnityEngine.Advertisements.Editor.Placeholder
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GE_ToggleFullScreenUI
 fa1635905a7a888a0685a99c123412a7 Assembly-CSharp.dll:.Timeline
 97705c0a658d0663ad3bbd895f658ce6 Assembly-CSharp.dll:.TimelineEvent
@@ -154,7 +156,7 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 528ea1fd7c01796fc60c4e2f172ea229 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkTransformVisualizer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GA_FREE_OpenOtherScene
 42057599834e76900d0987379e4fa2cd Assembly-UnityScript.dll:.GA_FREE_JS_Demo06
-ea940681fdd6f57dec679fd6efac1ff8 Assembly-CSharp.dll:.Game
+b411a4c2791f385a728408efaf262426 Assembly-CSharp.dll:.Game
 637a372a8286eb3be48e0ecd4a7ee7ac Assembly-UnityScript.dll:.GA_FREE_JS_DemoPlaySound
 05524b8f659e7bfe5756d1335fec24ba UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.PlayModeRunnerCallback
 2a56361227def9f56c2cf57a88b32f4d UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
@@ -174,7 +176,7 @@ c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.Spa
 e7cecaedb57da7aa2da2ecf128a29c40 Assembly-UnityScript.dll:.GA_FREE_JS_Demo04
 f671a42aea5f34fec6a4450a3668c615 Assembly-CSharp.dll:UnityEngine.PostProcessing.PostProcessingProfile
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
-bb5e1204d6a41b79139f7d31365a5f7e Assembly-CSharp.dll:.PlayerController
+4cc9c27f02887e2f11c00d727acf19e5 Assembly-CSharp.dll:.PlayerController
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.GE_OrbitCameraUI
 7dbf9671f76826cf4121502591603800 Assembly-CSharp.dll:.PlayerController2
 b70d8cd5459652d74bc8d0718a6e817a Assembly-CSharp.dll:.SpawnerController
